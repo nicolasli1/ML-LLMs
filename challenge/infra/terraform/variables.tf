@@ -20,3 +20,7 @@ variable "image_name" {
   type        = string
   default     = "gcr.io/festive-bazaar-452803-c1/ml-api"
 }
+
+variable "gcp_credentials" {
+  type = string
+}

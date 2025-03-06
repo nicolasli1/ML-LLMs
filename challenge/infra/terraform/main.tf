@@ -10,7 +10,7 @@ terraform {
 provider "google" {
   project     = var.project_id
   region      = var.region
-  credentials = file("festive-bazaar-452803-c1-9e321ca98eef.json")
+  credentials = var.gcp_credentials
 }
 
 
