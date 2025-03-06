@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 python:3.11.10-slim
+FROM --platform=linux/amd64 python:3.9.21-slim
 
 RUN apt-get update && \
     apt-get install -y nano htop curl git wget unzip && \
