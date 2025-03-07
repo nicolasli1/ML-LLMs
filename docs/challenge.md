@@ -56,8 +56,8 @@ Además de ejecutar las pruebas automáticas, se realizaron pruebas en un entorn
 
 Para ello, se ejecutó el siguiente comando:
 
-```bash
-uvicorn challenge.api:app --reload --host 0.0.0.0 --port 8000
+   ```bash
+   uvicorn challenge.api:app --reload --host 0.0.0.0 --port 8000
 
 
 ![Descripción de la imagen](imagen/imagen4.png)
@@ -71,8 +71,8 @@ En este `Dockerfile`, se define la imagen base y se incluyen todas las dependenc
 
 A continuación, se construye la imagen del contenedor ejecutando:
 
-```bash
-docker build -t api-flight-delay .
+   ```bash
+   docker build -t api-flight-delay .
 
 
 
@@ -90,9 +90,9 @@ En este módulo de Terraform, se configuran los siguientes componentes clave:
 
 Una vez definida la infraestructura, se procede con la ejecución de Terraform para desplegar los recursos:
 
-```bash
-terraform init
-terraform apply -auto-approve
+   ```bash
+   terraform init
+   terraform apply -auto-approve
 
 el log de salida lo podremos ver mas adelante en el pipeline 
 
@@ -104,24 +104,24 @@ Una vez desplegada la API en Google Cloud Run, realizamos pruebas para verificar
 
 Para comprobar que la API está activa, ejecutamos el siguiente comando en la terminal:
 
-```bash
-curl -X GET "https://ml-api-bv34qnle6q-uc.a.run.app/"
+   ```bash
+   curl -X GET "https://ml-api-bv34qnle6q-uc.a.run.app/"
 
 Para validar la funcionalidad del modelo de predicción, enviamos una solicitud con datos de prueba:
 
 
-```bash
-curl -X POST "https://ml-api-bv34qnle6q-uc.a.run.app/predict" \
-     -H "Content-Type: application/json" \
-     -d '{
-        "flights": [
-            {
-                "OPERA": "Aerolineas Argentinas",
-                "TIPOVUELO": "N",
-                "MES": 3
-            }
-        ]
-     }'
+   ```bash
+   curl -X POST "https://ml-api-bv34qnle6q-uc.a.run.app/predict" \
+      -H "Content-Type: application/json" \
+      -d '{
+         "flights": [
+               {
+                  "OPERA": "Aerolineas Argentinas",
+                  "TIPOVUELO": "N",
+                  "MES": 3
+               }
+         ]
+      }'
 
 La API responderá con la predicción, indicando si el vuelo tendrá un retraso (1) o no (0)
 
