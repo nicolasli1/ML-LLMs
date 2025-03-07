@@ -15,7 +15,7 @@ Durante la ejecución del archivo `challenge/exploration.ipynb` en Jupyter, se d
 
 
 
-![Descripción de la imagen](imagen/imagen1.png)
+![](imagen/imagen1.png)
 
 
 ### Implementación del Modelo en `model.py`
@@ -32,7 +32,7 @@ Durante esta fase, se realizaron las siguientes acciones:
    make model-test
 
 
-![Descripción de la imagen](imagen/imagen2.png)
+![](imagen/imagen2.png)
 
 ### Construcción de la API en `api.py`
 
@@ -47,20 +47,21 @@ Las acciones realizadas en esta fase fueron:
    ```bash
    make api-test
 
-![Descripción de la imagen](imagen/imagen3.png)
+![](imagen/imagen3.png)
 
 
 ### Pruebas en entorno local
 
 Además de ejecutar las pruebas automáticas, se realizaron pruebas en un entorno local para validar el correcto funcionamiento de la API antes de su despliegue en la nube.
 
-Para ello, se ejecutó el siguiente comando:
+Ejecutamos el siguiente comando 
 
    ```bash
    uvicorn challenge.api:app --reload --host 0.0.0.0 --port 8000
+   ```
 
 
-![Descripción de la imagen](imagen/imagen4.png)
+![](imagen/imagen4.png)
 
 
 ### Construcción de la API Dockerizada
@@ -73,7 +74,7 @@ A continuación, se construye la imagen del contenedor ejecutando:
 
    ```bash
    docker build -t api-flight-delay .
-
+```
 
 
 
@@ -93,7 +94,7 @@ Una vez definida la infraestructura, se procede con la ejecución de Terraform p
    ```bash
    terraform init
    terraform apply -auto-approve
-
+```
 el log de salida lo podremos ver mas adelante en el pipeline 
 
 ### Pruebas de la API en Google Cloud Run
@@ -106,7 +107,7 @@ Para comprobar que la API está activa, ejecutamos el siguiente comando en la te
 
    ```bash
    curl -X GET "https://ml-api-bv34qnle6q-uc.a.run.app/"
-
+```
 Para validar la funcionalidad del modelo de predicción, enviamos una solicitud con datos de prueba:
 
 
@@ -122,10 +123,10 @@ Para validar la funcionalidad del modelo de predicción, enviamos una solicitud 
                }
          ]
       }'
-
+```
 La API responderá con la predicción, indicando si el vuelo tendrá un retraso (1) o no (0)
 
-![Descripción de la imagen](imagen/imagen5.png)
+![](imagen/imagen5.png)
 
 ### Modificación del Pipeline para Despliegue Automático
 
@@ -147,8 +148,9 @@ Este pipeline garantiza que cada cambio en el código o en la infraestructura se
 
 En la siguiente imagen podemos ver el despliegue CD 
 
-![Descripción de la imagen](imagen/imagen6.png)
+![](imagen/imagen6.png)
 
+![](imagen/6.png)
 ### Implementación del Pipeline de CI
 
 Inicialmente, la idea era incorporar herramientas de validación de código estático y dinámico para mejorar la calidad y seguridad del código. Se consideraron las siguientes herramientas:
